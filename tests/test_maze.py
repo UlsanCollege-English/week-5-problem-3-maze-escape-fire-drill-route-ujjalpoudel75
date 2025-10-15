@@ -1,3 +1,8 @@
+# tests/test_maze.py
+
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from src.maze import find_path
 
 # ---- Normal (4) ----
@@ -44,11 +49,12 @@ def test_out_of_bounds():
 def test_no_path_maze():
     g = [
         [0,1,0,0],
-        [0,1,0,1],
+        [1,1,0,1],  
         [0,1,0,1],
         [0,0,0,1],
     ]
     assert find_path(g, (0,0), (3,2)) is None
+
 
 def test_large_open_grid_diag_distance():
     n = 10
